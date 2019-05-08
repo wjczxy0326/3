@@ -1,0 +1,12 @@
+<ul>
+    {{each films value index}}
+    <li>
+        <span>{{index}}</span>
+        <h4>{{value.name}}</h4>
+        <p>{{value.nation}}</p>
+        {{each value.actors Name}}
+        <span>{{Name.name}}</span>
+        {{/each}}
+    </li>
+    {{/each}}
+</ul>

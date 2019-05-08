@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/artTemplate.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/html" id="son">
+        <ul>
+            {{each list value index}}
+            <li>
+                <span>{{index}}</span>
+                <span>{{value}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <script type="text/html" id="temp">
+        <div>
+            <h3>新闻</h3>
+            <span>{{include 'son' xw}}</span>
+        </div>
+        <div>
+            <h3>体育</h3>
+            <sapn>{{include 'son' pe}}</span>
+        </div>
+    </script>
+    <script type="text/javascript">
+        let data = {
+				xw: {
+					list: ['娱乐','科技','数码','汽车','生活','美女']
+				},
+				pe: {
+					list: ['篮球','足球','排球','棒球','网球','台球']
+				}
+				
+			}
+        let myhtml=template("temp",data);
+        document.getElementById("container").innerHTML=myhtml;
+    </script>
+</body>
+</html>

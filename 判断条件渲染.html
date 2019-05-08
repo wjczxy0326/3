@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/artTemplate.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/html" id="temp">
+        {{if readyState==4}}
+        <h3>请求已经完成！</h3>
+            {{if status==200}}
+            <h4>请求成功！</h4>
+            {{else if status==404}}
+            <h4>浏览器页面发生错误！</h4>
+            {{else}}
+            <h4>找不到问题,联系管理员吧！</h4>
+            {{/if}}
+        {{else if readyState=3}}
+        <h3>请求已发送！</h3>
+        {{else}}
+        <h3>请求还么开始！</h3>
+        {{/if}}
+    </script>
+    <script type="text/javascript">
+    let data={
+        status:505,
+        readyState:4
+    }
+        let myhtml=template("temp",data);
+        document.querySelector("#container").innerHTML=myhtml;
+    </script>
+</body>
+</html>
